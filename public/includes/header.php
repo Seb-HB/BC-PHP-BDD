@@ -1,3 +1,10 @@
+<?php
+    if(!isset($_SESSION['panier'])){
+        $_SESSION['panier']=[];
+        $_SESSION['panier']['totalArticle']=0;
+    }
+?>
+
 <header>
         <a href="index.php"><img src="img/logo.png" alt="logo la Nîmes'alerie" class="absolute" id="Logo"></a>
         <div id="InfoBar">
