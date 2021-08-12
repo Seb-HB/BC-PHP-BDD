@@ -33,27 +33,15 @@
         // traitement des arguments get
         treatGetArguments();
 
-
         //affichage du header
         include "includes/header.php"; 
 
         //affichage du contenu en fonction du traitement de $_GET fait precedemment
-
+        include ('pages'.$_SESSION['targetUrl']);
 
         //affichage du footer
         include "includes/footer.php" 
-
-        // $_SESSION['users']=[
-        //     [
-        //         'id'=>'seb',
-        //         'pass'=>'admin'
-        //     ],
-        //     [
-        //         'id'=>'visiteur',
-        //         'pass'=>'invité'
-        //     ]
-        // ];
-                   
+     
                 
     ?>
 </body>

@@ -13,8 +13,7 @@ function switchTheme($page){
     }else{
         setcookie('theme', 'dark');
     }
-
-    header('Location: '.$page );
+    // header('Location: '.$page );
 }
 
 function disconnect(){
@@ -24,20 +23,25 @@ function disconnect(){
 
 function treatGetArguments(){
     if (count($_GET)>0){
-        // var_dump($_GET);
-        // die();
         foreach($_GET as $argument=> $value){
             switch($argument){
                 case 's':
                     switchTheme(stristr($_SERVER['REQUEST_URI'], '?', true));
+                    $_SESSION['targetUrl']=stristr($_SERVER['REQUEST_URI'], '?', true);
                     break;
                 case 'deco':
                     disconnect();
+                    $_SESSION['targetUrl']=stristr($_SERVER['REQUEST_URI'], '?', true);
+                    break;
+                case 'page':
+                    $_SESSION['targetUrl']='/'.$value.'php';
                     break;
                 default:
-                    header('Location: ' .$_SERVER['HTTP_REFERER']);
+                    $_SESSION['targetUrl']=stristr($_SERVER['REQUEST_URI'], '?', true);
             }
         }
+    }else{
+        ($_SERVER['REQUEST_URI']=='/index.php')? $_SESSION['targetUrl']='/home.php': $_SESSION['targetUrl']=$_SERVER['REQUEST_URI'];     
     }
 }
 
@@ -62,7 +66,7 @@ function connectBDD(){
     return $bdd;
 }
 
-/*---------------------------REQUESTs----------------------- */
+/*---------------------------REQUESTS----------------------- */
 
 function fetchAllRequest($bdd, $request){
     $result= $bdd->query($request);
