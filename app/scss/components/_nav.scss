@@ -60,8 +60,7 @@ header {
     }
     #connectStatus {
         flex: 0 0 15%;
-        text-align: right;
-        padding-right: 10px;
+        text-align: left;
         &:hover #userMenu{
             display: block;
         }
@@ -82,4 +81,5 @@ header {
     color:var(--text-theme-color);
     display:none;
     padding:15px;
+    line-height:40Px;
 }

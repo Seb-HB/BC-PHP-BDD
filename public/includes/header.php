@@ -131,7 +131,7 @@
                             <div id="userMenu">
                                 <ul>
                                     <li><a href="'.$_SERVER['REQUEST_URI'].'?deco=1"><img src="'.getThemePath().'deconexion.png" alt="Déconnexion">Deconnexion</a></li>
-                                    <li><a href="'.$_SERVER['REQUEST_URI'].'?s=s"><img src="'.getThemePath().'theme.png" alt="">Activer le mode</a></li>
+                                    <li><a href="'.$_SERVER['REQUEST_URI'].'?s=s"><img src="'.getThemePath().'theme.png" alt="">Activer le mode '.((!isset($_COOKIE['theme']) || $_COOKIE['theme']=='light')? 'sombre': 'clair').'</a></li>
                                 </ul>
                             </div>
 
