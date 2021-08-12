@@ -1,0 +1,85 @@
+header {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    color: $white;
+    .reduce{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    nav{
+        width: 80%;
+        ul{
+            display: flex;
+            justify-content: space-between;
+            li{
+                display: inline-block;
+                &:hover{
+                    #sousmenu{
+                        display: flex;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+#Logo {
+    position: absolute;
+    top:5px;
+    left:5px;
+}
+
+#InfoBar {
+    background-color: $green;
+    height: 30px;
+    .reduce{
+        height: 100%;
+        div{
+            display: flex;
+            img, span{
+                margin-right: 5px;
+            }
+        }
+    }
+
+}
+
+#Navbar {
+    background-color: $trans-black;
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    line-height: 40px;
+    div:nth-child(1){
+        flex: 0 0 65%;
+    }
+    #connectStatus {
+        flex: 0 0 15%;
+        text-align: right;
+        padding-right: 10px;
+        &:hover #userMenu{
+            display: block;
+        }
+    }
+    #navCart{
+        flex: 0 0 10%;
+        text-align: right;
+        padding-right: 10px;
+        img{
+            margin-right:5px;
+        }
+    }
+
+}
+
+#userMenu{
+    background-color: var(--bg-theme-color);
+    color:var(--text-theme-color);
+    display:none;
+    padding:15px;
+}

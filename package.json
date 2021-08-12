@@ -1,0 +1,30 @@
+{
+  "name": "version-flex-sass",
+  "version": "2.0.0",
+  "description": "intégration maquette avec  flex et sass",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tocss": "sass ./app/scss/main.scss ./public/CSS/style.css --watch",
+    "mini": "sass ./app/scss/main.scss ./public/CSS/style.css --style compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seb-HB/BC-Sass-Flex.git"
+  },
+  "keywords": [
+    "Sass",
+    "Flex",
+    "Business-case",
+    "intégration"
+  ],
+  "author": "Sébastien Fouvet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Seb-HB/BC-Sass-Flex/issues"
+  },
+  "homepage": "https://github.com/Seb-HB/BC-Sass-Flex#readme",
+  "devDependencies": {
+    "sass": "^1.32.12"
+  }
+}

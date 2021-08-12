@@ -1,0 +1,29 @@
+
+#FirstCat{
+    top: -216px;
+    right: 0;
+}
+#SecondCat{
+    bottom: -80px;
+    left: -5px;
+}
+#fusee{
+    left: 0%;
+    top: 33px;
+}#dogs{
+    top: -224px;
+    left: 19%;
+}
+
+#avis>:nth-child(2){
+    margin: 2rem auto;
+}
+#avis div div{
+    margin-bottom: 3rem;
+}
+
+footer{
+    // background-image: url('/public/img/footer.png');
+    // min-height: 427px;
+    text-align: left;
+}

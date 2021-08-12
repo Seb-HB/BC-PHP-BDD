@@ -1,0 +1,33 @@
+.reduce{
+    width: 80%;
+    margin: 0 auto;
+}
+.tiers{
+    width: 30%;
+}
+.quart{
+    width:24%;
+}
+.fifty{
+    width: 49%;
+}
+.two-col{
+    width: 16%;
+}
+.responsive{
+    width: 100%;
+    height:auto;
+}
+
+
+
+
+
+@media screen and (max-width: 600px){
+    .reduce{
+        width: 95%;
+    }
+    .fifty{
+        width: 100%;
+    }
+}

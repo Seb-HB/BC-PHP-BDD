@@ -1,0 +1,30 @@
+#sousmenu{
+    position: absolute;
+    display: none;
+    // display: flex;
+    width: 760/1920*100vw;
+    left: 190px;
+    top: 70px;
+    background-color: $white;
+    justify-content: space-around;
+    padding: 0 20px;
+    line-height: initial;
+
+}
+
+#ss-menu-items{
+    flex: 80%;
+    display: flex;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.itemscolumn{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+    color: $font-color;
+    a{
+        flex: 30%;
+    }
+}

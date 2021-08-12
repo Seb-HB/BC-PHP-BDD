@@ -1,0 +1,13 @@
+.btn{
+    display: inline-block;
+    padding: 10px 30px;
+    margin: 2rem 0;
+    border-radius: 20px;
+    transition: box-shadow 500ms;
+    &:hover{
+        box-shadow: 5px 5px 5px $head-gold;
+    }
+}
+.btn-gold{
+    background:  linear-gradient($btn-gold, $btn-gold-gradient, $btn-gold);   
+}

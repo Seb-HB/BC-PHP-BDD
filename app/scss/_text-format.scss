@@ -1,0 +1,46 @@
+
+body{
+    font-family: $exo;
+    color: $font-color;
+    text-align: center;
+    background-color: var(--bg-theme-color);
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+h2{
+    font-size:48Px;
+    margin-bottom: 2rem;
+    color: $head-gold;
+}
+h3{
+    //font-family: $roboto;
+    font-size: 26px;
+    margin: bottom 1rem;
+}
+
+p{
+    font-family: $roboto;
+    text-align:justify;
+    font-size:20px;
+}
+
+.bg-grey h2{
+    color: inherit;
+}
+
+.align-left{
+    text-align: left;
+}
+.align-right{
+    text-align: right;
+}
+
+.flex-right{
+    justify-content: flex-end;
+}
+.flex-center{
+    justify-content: center;
+}
