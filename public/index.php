@@ -27,7 +27,7 @@
         include "includes/functions.php";
 
         // puis lance le traitement des arguments get
-        treatGetArgument();
+        treatGetArguments();
 
         $bdd=connectBDD();
 

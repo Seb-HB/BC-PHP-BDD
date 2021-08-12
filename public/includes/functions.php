@@ -22,7 +22,7 @@ function disconnect(){
 }
 
 
-function treatGetArgument(){
+function treatGetArguments(){
     if (count($_GET)>0){
         // var_dump($_GET);
         // die();
