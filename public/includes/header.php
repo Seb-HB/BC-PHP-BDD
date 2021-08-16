@@ -1,8 +1,15 @@
 <?php
+    //initialise un panier s'il n'y en a pas
     if(!isset($_SESSION['panier'])){
         $_SESSION['panier']=[];
         $_SESSION['panier']['totalArticle']=0;
     }
+    //  recupère les catégories principales en bdd
+    $parentCategories=getParentsCategories($bdd);
+
+    // recupère les catégories enfants triées par categories parentes
+    $ChildrensCategories=getSortedChildCategories($bdd);
+
 ?>
 
 <header>
@@ -28,7 +35,38 @@
             <div class="InBl">
                 <nav>
                     <ul>
-                        <li><a href="food.html">Alimentation</a>
+                        <?php
+                        foreach ($parentCategories as $parent){
+                            
+                            echo('
+                                <li>'.$parent['nomCat'].'
+                                    <div id="sousmenu">
+                                        <div>
+                                            <img src="img/deco/barre-access.png" alt="">
+                                        </div>
+                                        <div id="ss-menu-items">
+                                            <div class="itemscolumn tiers">
+                                                <a href="" >Jouets <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="" >Colliers & laisses<br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="" >Vêtements <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                            </div>
+                                            <div class="itemscolumn tiers">
+                                                <a href="">Dressage <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="">Transport <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="">Soins & hygiène <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                            </div>
+                                            <div class="itemscolumn tiers">
+                                                <a href="">Oisellerie <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="">Aquariophilie <br><img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                                <a href="">Terrariophilie <br> <img src="img/deco/séparation-sous-menus.png" alt="ligne séparation"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            ');
+                        }
+                        ?>
+                        <!-- <li><a href="food.html">Alimentation</a>
                             <div id="sousmenu">
                                 <div>
                                     <img src="img/deco/barre-alim.png" alt="">
@@ -123,7 +161,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
+                        </li> -->
                         <li><a href="Contact.html">Contact</a></li>
                     </ul>
                 </nav>
@@ -137,8 +175,8 @@
                             Bonjour '.$_SESSION['activeUser'].'
                             <div id="userMenu">
                                 <ul>
-                                    <li><a href="'.$_SERVER['REQUEST_URI'].'?deco=1"><img src="'.getThemePath().'deconexion.png" alt="Déconnexion">Deconnexion</a></li>
-                                    <li><a href="'.$_SERVER['REQUEST_URI'].'?s=s"><img src="'.getThemePath().'theme.png" alt="">Activer le mode</a></li>
+                                    <li><a href="'.getActiveUrlWithoutArguments().'?deco=1"><img src="'.getThemePath().'deconexion.png" alt="Déconnexion">Deconnexion</a></li>
+                                    <li><a href="'.getActiveUrlWithoutArguments().'?s=s"><img src="'.getThemePath().'theme.png" alt="">Activer le mode</a></li>
                                 </ul>
                             </div>
 
@@ -146,7 +184,7 @@
                     }else{
                         echo('
                             <img src="img/ico/userDisconnected.png" alt="Utilisateur connecté">
-                            <a href="pages/login.php">Se connecter</a>
+                            <a href="'.getActiveUrlWithoutArguments().'?log=1">Se connecter</a>
                         ');
                     }
                 ?>

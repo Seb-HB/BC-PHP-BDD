@@ -7,7 +7,7 @@
 
 /*********************requetes***************/
 
-$productDetail='SELECT D.id_declinaison , P.nomProd productName, M.marque, Pr.prix, P.descProd Description,`couleur`, `taille`, C.nomCat Catégorie, Ph.chemin PhotoName, Ph.txtRemplacement altValue
+$productDetailRequest='SELECT D.id_declinaison , P.nomProd productName, M.marque, Pr.prix, P.descProd Description,`couleur`, `taille`, C.nomCat Catégorie, Ph.chemin PhotoName, Ph.txtRemplacement altValue
 FROM `declinaison` D
 JOIN `prix` Pr ON Pr.IdDeclinaison=D.id_declinaison
 JOIN `produit` P ON P.Id_Produit=D.Id_Produit
@@ -18,6 +18,14 @@ JOIN `appartenir` A ON A.Id_Produit=P.Id_Produit
 JOIN `categorie` C ON C.Id_Categorie=A.Id_Categorie
 WHERE Pr.dateDebut<=DATE(NOW()) AND Pr.dateFin>=DATE(NOW())';
 
+$parentsCategoriesRequest='SELECT Id_Categorie Id, nomCat
+                            FROM `categorie` 
+                            WHERE Id_parentCat IS NULL';
+
+$sortedChildrenCategoriesRequest='SELECT Id_Categorie Id, nomCat, Id_parentCat parent
+                                FROM `categorie`
+                                WHERE Id_parentCat IS NOT NULL
+                                ORDER BY Id_parentCat ASC';
 
 
 ?>

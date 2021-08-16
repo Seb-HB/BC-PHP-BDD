@@ -21,6 +21,18 @@
     <?php
         // demarre la session
         session_start();
+
+        $_SESSION['users']=[
+            [
+                'id'=>'seb',
+                'pass'=>'admin'
+            ],
+            [
+                'id'=>'visiteur',
+                'pass'=>'invité'
+            ]
+        ];
+
         //charge les variables
         include "includes/vars.php";
         //charge les fonctions
@@ -29,15 +41,26 @@
         // crée une instance PDO
         $bdd=connectBDD();
 
+        //verifie et traite les requetes POST
+        treatPostForms();
 
-        // traitement des arguments get
+        // traitement des arguments GET
         treatGetArguments();
 
         //affichage du header
         include "includes/header.php"; 
 
+        echo('<div id="global-container">');
+
         //affichage du contenu en fonction du traitement de $_GET fait precedemment
         include ('pages'.$_SESSION['targetUrl']);
+        // si on veut se loguer, affiche le formulaire
+        if($_SESSION['login']) {
+            include ('pages/Login.php');
+            var_dump('toto', $_SESSION['login']);
+        die();}
+
+        echo('</div>');
 
         //affichage du footer
         include "includes/footer.php" 
